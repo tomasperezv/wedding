@@ -1,0 +1,16 @@
+{
+  "name": "wedding",
+  "version": "0.0.1",
+  "description": "Static landing pages for my wedding.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tomasperezv/wedding.git"
+  },
+  "author": "Tomas Perez <tom@0x101.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomasperezv/wedding/issues"
+  },
+  "homepage": "https://github.com/tomasperezv/wedding"
+}
