@@ -57,6 +57,16 @@ module.exports = function(grunt) {
       }
     },
 
+    watch: {
+      scripts: {
+        files: ['./static/js/*.js', './static/css/*.css', './html/*.html'],
+        tasks: ['build'],
+        options: {
+          spawn: false,
+        },
+      },
+    },
+
     clean: ["./tmp/"]
 
   });
@@ -70,6 +80,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
   // Default task(s).
-  grunt.registerTask('default', ['concat', 'uglify', 'cssmin', 'htmlmin', 'clean']);
+  grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'htmlmin', 'clean']);
+  grunt.registerTask('default', ['build']);
 
 };
