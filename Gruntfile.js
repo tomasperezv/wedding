@@ -10,13 +10,13 @@ module.exports = function(grunt) {
         src: [
           './static/css/*'
         ],
-        dest : './tmp/css/svt.css'
+        dest : './tmp/css/sdt.css'
     },
       js : {
         src : [
           './static/js/*'
         ],
-        dest : './tmp/js/svt.js'
+        dest : './tmp/js/sdt.js'
       }
     },
 
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
       },
       build: {
         src: 'tmp/bundle.js',
-        dest: 'release/static/js/svt-<%= pkg.version %>.min.js'
+        dest: 'release/static/js/sdt-<%= pkg.version %>.min.js'
       }
     },
 
@@ -45,6 +45,18 @@ module.exports = function(grunt) {
 
     },
 
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: false,
+          collapseWhitespace: true
+        },
+        files: {
+          './release/std.html': './html/save_the_date.html'
+        }
+      }
+    },
+
     clean: ["./tmp/"]
 
   });
@@ -55,8 +67,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
   // Default task(s).
-  grunt.registerTask('default', ['concat', 'uglify', 'cssmin', 'clean']);
+  grunt.registerTask('default', ['concat', 'uglify', 'cssmin', 'htmlmin', 'clean']);
 
 };
