@@ -25,7 +25,7 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
-        src: 'tmp/bundle.js',
+        src: 'tmp/js/sdt.js',
         dest: 'release/static/js/sdt-<%= pkg.version %>.min.js'
       }
     },
@@ -79,7 +79,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
-  // Default task(s).
+  // Define the tasks
   grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'htmlmin', 'clean']);
   grunt.registerTask('default', ['build']);
 
