@@ -45,24 +45,6 @@ module.exports = function(grunt) {
 
     },
 
-    locales: {
-
-      options: {
-        locales: ['en_US', 'es_ES']
-      },
-
-      update: {
-        src: [
-          './html/save_the_date.html'
-        ],
-        dest: './locales/{locale}/i18n.json'
-      },
-      locales: {
-        files: './locales/**/i18n.json',
-        tasks: ['locales:build']
-      }
-    },
-
     htmlmin: {
       dist: {
         options: {
@@ -70,7 +52,8 @@ module.exports = function(grunt) {
           collapseWhitespace: true
         },
         files: {
-          './release/std.html': './html/save_the_date.html'
+          './release/sdt.html': './tmp/sdt_es.html',
+          './release/sdt_en.html': './tmp/sdt_en.html'
         }
       }
     },
@@ -85,19 +68,18 @@ module.exports = function(grunt) {
       },
     },
 
-    jade: {
-      templates: {
+    template_runner: {
+
+      folder: {
         options: {
-          i18n: {
-            locales: 'locales/*.json',
-            namespace: '$i18n'
-          },
-          pretty: true
+          locales: ['en', 'es'],
+          directory: 'locales'
         },
         files: {
-          "release/std.html": ["./templates/save_the_date.jade"]
+          'tmp/sdt.html': ['templates/save_the_date.html']
         }
       }
+
     },
 
     clean: ["./tmp/"]
@@ -111,10 +93,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
-  grunt.loadNpmTasks('grunt-locales');
+  grunt.loadNpmTasks('grunt-template-runner');
 
   // Define the tasks
-  grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'locales', 'htmlmin', 'clean']);
+  grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'template_runner', 'htmlmin', 'clean']);
+  grunt.registerTask('locale', ['template_runner']);
   grunt.registerTask('default', ['build']);
 
 };
