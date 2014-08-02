@@ -45,6 +45,24 @@ module.exports = function(grunt) {
 
     },
 
+    locales: {
+
+      options: {
+        locales: ['en_US', 'es_ES']
+      },
+
+      update: {
+        src: [
+          './html/save_the_date.html'
+        ],
+        dest: './locales/{locale}/i18n.json'
+      },
+      locales: {
+        files: './locales/**/i18n.json',
+        tasks: ['locales:build']
+      }
+    },
+
     htmlmin: {
       dist: {
         options: {
@@ -67,6 +85,21 @@ module.exports = function(grunt) {
       },
     },
 
+    jade: {
+      templates: {
+        options: {
+          i18n: {
+            locales: 'locales/*.json',
+            namespace: '$i18n'
+          },
+          pretty: true
+        },
+        files: {
+          "release/std.html": ["./templates/save_the_date.jade"]
+        }
+      }
+    },
+
     clean: ["./tmp/"]
 
   });
@@ -78,9 +111,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-locales');
 
   // Define the tasks
-  grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'htmlmin', 'clean']);
+  grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'locales', 'htmlmin', 'clean']);
   grunt.registerTask('default', ['build']);
 
 };
