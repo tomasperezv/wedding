@@ -98,6 +98,16 @@ module.exports = function(grunt) {
       }
     },
 
+    copy: {
+      main: {
+        files: [
+          // includes files within path and its sub-directories
+          {expand: true, src: ['static/img/*'], dest: 'release/', filter: 'isFile'},
+          {expand: true, src: ['static/fonts/*'], dest: 'release/', filter: 'isFile'}
+        ]
+      }
+    },
+
     clean: ["./tmp/"]
 
   });
@@ -111,9 +121,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-template-runner');
   grunt.loadNpmTasks('grunt-string-replace');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Define the tasks
-  grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'string-replace', 'template_runner', 'htmlmin', 'clean']);
+  grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'string-replace', 'template_runner', 'htmlmin', 'copy', 'clean']);
   grunt.registerTask('locale', ['template_runner']);
   grunt.registerTask('replace', ['string-replace']);
   grunt.registerTask('default', ['build']);
