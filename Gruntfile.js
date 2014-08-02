@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 
     watch: {
       scripts: {
-        files: ['./static/js/*.js', './static/css/*.css', './html/*.html'],
+        files: ['./static/js/*.js', './static/css/*.css', './templates/*.html'],
         tasks: ['build'],
         options: {
           spawn: false,
