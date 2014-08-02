@@ -21,6 +21,8 @@
     "grunt-contrib-cssmin": "~0.10.0",
     "grunt-contrib-clean": "~0.6.0",
     "grunt-contrib-htmlmin": "~0.3.0",
-    "grunt-template-runner": "~0.2.1"
+    "grunt-template-runner": "~0.2.1",
+    "grunt-preprocess": "~4.0.0",
+    "grunt-string-replace": "~0.2.7"
   }
 }

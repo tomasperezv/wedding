@@ -76,10 +76,26 @@ module.exports = function(grunt) {
           directory: 'locales'
         },
         files: {
-          'tmp/sdt.html': ['templates/save_the_date.html']
+          'tmp/sdt.html': ['tmp/sdt.html']
         }
       }
 
+    },
+
+    'string-replace': {
+      version: {
+        files: {
+          './tmp/sdt.html': './templates/save_the_date.html'
+        },
+        options: {
+          replacements: [
+            {
+              pattern: /{{STATIC_VERSION}}/g,
+              replacement: function() { return grunt.config.get('pkg').version; }
+            }
+          ]
+        }
+      }
     },
 
     clean: ["./tmp/"]
@@ -94,10 +110,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-template-runner');
+  grunt.loadNpmTasks('grunt-string-replace');
 
   // Define the tasks
-  grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'template_runner', 'htmlmin', 'clean']);
+  grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'string-replace', 'template_runner', 'htmlmin', 'clean']);
   grunt.registerTask('locale', ['template_runner']);
+  grunt.registerTask('replace', ['string-replace']);
   grunt.registerTask('default', ['build']);
 
 };
