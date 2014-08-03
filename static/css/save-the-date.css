@@ -20,7 +20,6 @@ h4 {
 }
 
 .header-images .main-logo {
-  margin-top: 25px;
   height: 250px;
   -webkit-transition: width 0.5s, height 0.5s,-webkit-transform 0.5s;
   transition: width 0.5s, height 0.5s, transform 0.5s;

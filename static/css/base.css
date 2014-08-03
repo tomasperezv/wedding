@@ -4,6 +4,7 @@ body {
   font-size: 24px;
   font-family: sackers-heavy;
   overflow: hidden;
+  height:100vh;
 }
 
 h2, h3 {
@@ -32,4 +33,12 @@ h4 a {
 
 .clear-inline {
   display: block;
+}
+
+.content {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
