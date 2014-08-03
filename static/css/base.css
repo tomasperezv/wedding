@@ -40,10 +40,13 @@ li {
 
 a, a:visited {
   color: #FFE5DE;
+  text-decoration: none;
 }
 
 h4 a {
   font-size: 12px;
+  border-bottom: 1px solid;
+  padding: 3px;
 }
 
 .clear-inline {
@@ -59,10 +62,9 @@ h4 a {
 }
 
 .invitation {
-  /*background-color: #f3b5a6;*/
-  background-color: #fab1a0;
+  background-color: #FFC0CB;
   margin: auto;
   width: 500px;
   padding: 30px;
-  border: 3px double rgba(245,245,245,.56)
+  border: 4px double rgba(245,245,245,.56)
 }
