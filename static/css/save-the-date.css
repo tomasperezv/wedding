@@ -5,14 +5,14 @@ h3 {
 h4 {
   font-family: sackers-medium;
   font-weight: normal;
-  font-size: 13px;
+  font-size: 14px;
   color: #FFE5DE;
+  margin-bottom: 10px;
 }
 
 .header-images {
   width: 100%;
   text-align: center; 
-  margin-top: 25px;
   white-space: pre-line;
   line-height: 0;
   *white-space: pre;
@@ -20,6 +20,7 @@ h4 {
 }
 
 .header-images .main-logo {
+  margin-top: 25px;
   height: 250px;
   -webkit-transition: width 0.5s, height 0.5s,-webkit-transform 0.5s;
   transition: width 0.5s, height 0.5s, transform 0.5s;
@@ -57,4 +58,10 @@ h4 {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+.separator {
+  width: 315px;
+  border: 3px double rgba(245, 245, 245, 0.56);
+  margin: 15px auto 10px;
 }
