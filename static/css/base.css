@@ -12,6 +12,11 @@ body {
   -ms-user-select: none;
   user-select: none;
   text-rendering: optimizeLegibility;
+  text-shadow: 0 2px 2px rgba(179, 129, 129, 0.61);
+}
+
+h4 {
+  text-shadow: none;
 }
 
 .can-select {
