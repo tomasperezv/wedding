@@ -1,0 +1,15 @@
+@media (max-height: 490px) {
+
+  .header-images .main-logo {
+    height: 220px;
+  }
+
+}
+
+@media (max-height: 300px) {
+
+  .header-images .main-logo {
+    display: none;
+  }
+
+}

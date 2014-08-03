@@ -1,6 +1,6 @@
 {
   "name": "wedding",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Static landing pages for my wedding.",
   "main": "index.js",
   "repository": {

@@ -8,7 +8,11 @@ module.exports = function(grunt) {
     concat: {
       css: {
         src: [
-          './static/css/*'
+          './static/css/reset.css',
+          './static/css/base.css',
+          './static/css/fonts.css',
+          './static/css/save-the-date.css',
+          './static/css/responsive.css'
         ],
         dest : './tmp/css/sdt.css'
     },
@@ -60,7 +64,7 @@ module.exports = function(grunt) {
 
     watch: {
       scripts: {
-        files: ['./static/js/*.js', './static/css/*.css', './templates/*.html'],
+        files: ['./static/js/*.js', './static/css/*.css', './templates/*.html', './locales/*.json'],
         tasks: ['build'],
         options: {
           spawn: false,

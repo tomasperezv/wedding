@@ -1,0 +1,9 @@
+@font-face {
+  font-family: sackers-heavy;
+  src: url(../fonts/sackers-heavy-gothic.ttf);
+}
+
+@font-face {
+  font-family: sackers-medium;
+  src: url(../fonts/sackers-gothic-medium.ttf);
+}
