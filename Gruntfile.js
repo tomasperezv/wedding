@@ -89,7 +89,7 @@ module.exports = function(grunt) {
     'string-replace': {
       version: {
         files: {
-          './tmp/sdt.html': './templates/save_the_date.html'
+          './tmp/sdt.html': './templates/save_the_date.html',
         },
         options: {
           replacements: [
@@ -99,7 +99,23 @@ module.exports = function(grunt) {
             }
           ]
         }
+      },
+
+      ghostify: {
+        files: {
+          './release/page-save-the-date.hbs': './release/sdt.html',
+          './release/page-save-the-date_en.hbs': './release/sdt_en.html'
+        },
+        options: {
+          replacements: [
+            {
+              pattern: /.\/static\//g,
+              replacement: '/assets/sdt/'
+            }
+          ]
+        }
       }
+
     },
 
     copy: {
@@ -128,7 +144,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Define the tasks
-  grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'string-replace', 'template_runner', 'htmlmin', 'copy', 'clean']);
+  grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'string-replace:version', 'template_runner', 'htmlmin', 'copy', 'string-replace:ghostify', 'clean']);
   grunt.registerTask('locale', ['template_runner']);
   grunt.registerTask('replace', ['string-replace']);
   grunt.registerTask('default', ['build']);
