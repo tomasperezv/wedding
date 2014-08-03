@@ -21,6 +21,8 @@ h4 {
 
 .header-images .main-logo {
   height: 250px;
+  -webkit-transition: width 0.5s, height 0.5s,-webkit-transform 0.5s;
+  transition: width 0.5s, height 0.5s, transform 0.5s;
 }
 
 .header-images .hearth {

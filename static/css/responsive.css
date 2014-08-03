@@ -9,7 +9,9 @@
 @media (max-height: 300px) {
 
   .header-images .main-logo {
-    display: none;
+    height: 0px;
+    -webkit-transition: height 1s,-webkit-transform 1s;
+    transition: height 1s, transform 1s;
   }
 
 }
