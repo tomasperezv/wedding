@@ -103,8 +103,8 @@ module.exports = function(grunt) {
 
       ghostify: {
         files: {
-          './release/page-save-the-date.hbs': './release/sdt.html',
-          './release/page-save-the-date_en.hbs': './release/sdt_en.html'
+          './release/ghost-template/page-save-the-date.hbs': './release/sdt.html',
+          './release/ghost-template/page-save-the-date-en.hbs': './release/sdt_en.html'
         },
         options: {
           replacements: [
